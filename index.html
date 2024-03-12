@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decodificador de texto</title>
+    <link rel="stylesheet" href="Styles/styles.css">
+    <!-- Icones -->
+</head>
+
+<body id="text-decoder">
+    <Header class="text-decoder--header">
+        <img class="text-decoder__header--img" src="assets/Logo.png" alt="Alura A logo">
+    </Header>
+
+    <main class="text-decoder--main">
+        <section class="text-decoder__main--input">
+            <textarea class="text-decoder--main__input-text-area" name="input_area" id="input_area" rows="" cols="" placeholder="Digite sua texto"></textarea>
+            <button class="btn-encrypt">Criptografar</button>
+            <button class="btn-decrypt">Descriptografar</button>    
+        </section>
+
+        <section class="text-decoder__main--out">
+            <img src="assets/High quality products.png" class="text-decoder--main__out-img" alt="high quality produtcs">
+            <div class="text-decoder__main__out--warning">
+                <h3 id="coded__message">
+                    Nenhuma mensagem encontrada
+                </h3>
+                <p id="error_message">
+                    "Digite um texto que deseje criptografar ou descriptografar."
+                </p>
+            </div>
+            <button class="btn-copy" hidden>Copiar</button> 
+        <section>
+    </main>
+
+    <footer class="text-decoder--footer">
+
+    </footer>
+    
+    <!-- JavaScript -->
+    <script src="main.js"></script>
+</body>
+</html>
