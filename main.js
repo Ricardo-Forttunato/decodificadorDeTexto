@@ -1,7 +1,6 @@
 let message;
 
-let word = "";
-let wordList = [];
+let message_decoded;
 
 document.querySelector(".btn-encrypt").addEventListener("click", function () {
     message = document.getElementById("input_area").value;
@@ -18,9 +17,18 @@ document.querySelector(".btn-decrypt").addEventListener("click", function(){
     console.log(message);
 });
 
+document.querySelector(".btn-decrypt").addEventListener("click", function(){
+    message = document.getElementById("input_area").value;
+    message_decoded = descripted(message);
+    document.querySelector("#coded__message").innerHTML = message_decoded;
+    document.querySelector(".btn-copy").removeAttribute("hidden");
+    document.querySelector(".text-decoder--main__out-img").setAttribute("hidden", "hidden");
+
+});
+
 document.querySelector(".btn-copy").addEventListener("click", function(){
-    var backupMessage = document.getElementById("coded__message").innerHTML;
-    alert("texto enviado para area de transferencia \n" + backupMessage);
+    copyTextToClipboard(document.querySelector("#coded__message").innerHTML);
+    document.querySelector(".btn-copy").removeAttribute("hidden");
 });
 
 // reset web page to original without using the refresh button
@@ -32,9 +40,6 @@ document.querySelector(".btn-copy").addEventListener("click", function(){
     document.querySelector(".text-decoder--main__out-img").removeAttribute("hidden");
 });
 
-document.querySelector(".btn-decrypt").addEventListener("click", function(){
-    descripted(message);
-});
 
 // A function that takes a string as an argument and returns a decoded version of the string.
 function decoder_text(text){
@@ -62,3 +67,20 @@ function decoder_text(text){
     }
     return letters
 };
+
+function descripted(text){
+    text = text.replace(/ai/g, "a");
+    text = text.replace(/enter/g, "e");
+    text = text.replace(/imes/g, "i");
+    text = text.replace(/ober/g, "o");
+    text = text.replace(/ufat/g, "u");
+    return text;
+}
+
+function copyTextToClipboard(text) {
+    navigator.clipboard.writeText(text).then(function() {
+        alert("Texto copiado para a área de transferência " + text);
+    }, function(err) {
+        console.error('Async: Could not copy text: ', err);
+    });
+  }
