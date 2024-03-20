@@ -10,7 +10,7 @@ document.querySelector(".btn-encrypt").addEventListener("click", function () {
 
 document.querySelector(".btn-decrypt").addEventListener("click", function(){
     message = document.getElementById("input_area").value;
-    message_decoded = descripted(message);
+    message_decoded = decripted(message);
     document.querySelector("#coded__message").innerHTML = message_decoded;
     resetPage();
 });
@@ -52,7 +52,7 @@ function decoder_text(text){
 };
 
 // function that takes a string as an argument and returns a undecoded version of the string.
-function descripted(text){
+function decripted(text){
     text = text.replace(/ai/g, "a");
     text = text.replace(/enter/g, "e");
     text = text.replace(/imes/g, "i");
